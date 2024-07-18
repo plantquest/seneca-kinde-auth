@@ -1,0 +1,16 @@
+{
+  "name": "seneca-kinde-auth",
+  "version": "1.0.0",
+  "description": "Kinde Auth Service for Seneca",
+  "author": "Kieran Desmond <kieran.desmond@gmail.com>",
+  "main": "index.js",
+  "dependencies": {
+    "seneca": "^3.9.0",
+    "@kinde-oss/kinde-auth-react": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "license": "ISC"
+}

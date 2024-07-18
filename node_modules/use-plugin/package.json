@@ -1,0 +1,48 @@
+{
+  "name": "use-plugin",
+  "version": "13.2.0",
+  "description": "Generic plugin loader functionality for Node.js frameworks.",
+  "main": "use.js",
+  "scripts": {
+    "test": "lab -v test/use.test.js -L -t 85 -r console -o stdout -r html -o test/coverage.html",
+    "test-some": "lab -v test/*.test.js -g",
+    "coveralls": "lab -s test/use.test.js -r lcov | coveralls",
+    "coverage": "lab -v test/use.test.js -t 85 -r html > coverage.html",
+    "prettier": "prettier --write --no-semi --single-quote *.js  test/*.js",
+    "clean": "rm -rf node_modules yarn.lock package-lock.json",
+    "reset": "npm run clean && npm i && npm test",
+    "repo-tag": "REPO_VERSION=`node -e \"console.log(require('./package').version)\"` && echo TAG: v$REPO_VERSION && git commit -a -m v$REPO_VERSION && git push && git tag v$REPO_VERSION && git push --tags;",
+    "repo-publish": "npm run clean && npm i && npm run repo-publish-quick",
+    "repo-publish-quick": "npm run prettier && npm test && npm run repo-tag && npm publish --registry https://registry.npmjs.org "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rjrodger/use-plugin.git"
+  },
+  "keywords": [
+    "use",
+    "plugin"
+  ],
+  "author": "Richard Rodger (http://richardrodger.com)",
+  "license": "MIT",
+  "dependencies": {
+    "eraro": "^3.0.1",
+    "nid": "^2.0.1",
+    "gubu": "^8.2.1",
+    "lodash.defaultsdeep": "^4.6.1"
+  },
+  "devDependencies": {
+    "@hapi/code": "^9.0.3",
+    "@hapi/lab": "^25.2.0",
+    "coveralls": "^3.1.1",
+    "prettier": "^3.3.2"
+  },
+  "files": [
+    "README.md",
+    "LICENSE.txt",
+    "use.js"
+  ],
+  "engines": {
+    "node": ">=16"
+  }
+}
